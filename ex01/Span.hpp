@@ -24,7 +24,7 @@ class Span{
 
         template <typename Iterator>
         void addNumbers(Iterator begin, Iterator end){
-            if(std::distance(begin, end) > _maxSize - _numbers.size())
+            if(static_cast<unsigned int>(std::distance(begin, end)) > _maxSize - _numbers.size())
                 throw SpanFullException();
             _numbers.insert(_numbers.end(), begin, end);
         }
