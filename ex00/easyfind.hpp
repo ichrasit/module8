@@ -8,7 +8,7 @@
 class NotFoundException : public std::exception{
     public:
     virtual const char* what() const throw(){
-            return "Eleman konteyner içinde bulunamadı!";
+            return "The employee could not be found inside the container!!";
     } 
 };
 
