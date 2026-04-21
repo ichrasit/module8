@@ -10,6 +10,7 @@
 #define YELLOW  "\033[33m"
 #define MAGENTA "\033[35m"
 #define BLUE    "\033[34m"
+#define RED     "\033[31m"
 
 int main()
 {
@@ -96,6 +97,16 @@ int main()
         ++strIt;
     }
 
-    std::cout << std::endl;
+    std::cout << BOLD << RED << "\n[ Phase 5: THE PRINGLES PROOF - DATA DESTRUCTION ]" << RESET << std::endl;
+    std::cout << YELLOW << "Stack size before eating: " << RESET << mstack.size() << std::endl;
+    std::cout << "Eating chips one by one (The ONLY way in a normal Stack):" << std::endl;
+
+    while (!mstack.empty())
+    {
+        std::cout << "Popping and reading: " << mstack.top() << std::endl;
+        mstack.pop();
+    }
+
+    std::cout << YELLOW << "Stack size after eating: " << RESET << mstack.size() << " (EMPTY!)" << std::endl;
     return 0;
 }

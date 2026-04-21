@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <cstdlib> // rand, srand için
-#include <ctime>   // time için
+#include <cstdlib>
+#include <ctime>
 #include "Span.hpp"
 
-// Minimalist Terminal Colors
 #define RESET   "\033[0m"
 #define BOLD    "\033[1m"
 #define DIM     "\033[2m"
@@ -18,9 +17,6 @@ int main() {
 
     std::cout << BOLD << CYAN << "\n[ SYSTEM INITIATED: SPAN ANALYSIS ]\n" << RESET << std::endl;
 
-    // ---------------------------------------------------------
-    // 1. SUBJECT DEFAULT TEST
-    // ---------------------------------------------------------
     std::cout << BOLD << GREY << "--- Phase 1: Subject Core Test ---" << RESET << std::endl;
     Span sp = Span(5);
     sp.addNumber(6);
@@ -32,9 +28,6 @@ int main() {
     std::cout << BLUE << "> Shortest Span: " << RESET << sp.shortestSpan() << std::endl;
     std::cout << BLUE << "> Longest Span : " << RESET << sp.longestSpan() << std::endl;
 
-    // ---------------------------------------------------------
-    // 2. EXCEPTION HANDLING TEST
-    // ---------------------------------------------------------
     std::cout << BOLD << GREY << "\n--- Phase 2: Exception Protocols ---" << RESET << std::endl;
     Span tinySpan = Span(1);
     tinySpan.addNumber(42);
@@ -53,15 +46,11 @@ int main() {
         std::cout << RED << e.what() << RESET << std::endl;
     }
 
-    // ---------------------------------------------------------
-    // 3. HEAVY LOAD TEST (15,000 Elements & Range Insertion)
-    // ---------------------------------------------------------
     std::cout << BOLD << GREY << "\n--- Phase 3: High-Fidelity Stress Test (15,000 Elements) ---" << RESET << std::endl;
     
     Span megaSpan(15000);
     std::vector<int> heavyData;
     
-    // Rastgele 15.000 veri üretiyoruz
     for (int i = 0; i < 15000; i++) {
         heavyData.push_back(std::rand());
     }
@@ -69,7 +58,6 @@ int main() {
     std::cout << DIM << "[Injecting data via iterator range...]" << RESET << std::endl;
     
     try {
-        // Tek seferde hepsini Span'a basıyoruz
         megaSpan.addNumbers(heavyData.begin(), heavyData.end());
         std::cout << CYAN << "Data injection successful." << RESET << std::endl;
 
